@@ -1,6 +1,6 @@
 # TRMNL St Albans Refuse Collection
 
-A port of [my Home Assistant refuse collections plugin](github.com/jshiell/homeassistant-stalbansrubbishcollections/) for St Albans to TRMNL.
+A port of [my Home Assistant refuse collections plugin](github.com/jshiell/homeassistant-stalbansrubbishcollections/) for St Albans to [TRMNL](https://usetrmnl.com).
 
 ## Running Locally
 
@@ -8,6 +8,7 @@ You'll need Ruby to run [trmnl-preview](https://github.com/usetrmnl/trmnlp).
 
 ```bash
 gem install trmnl-preview
+```
 
 UPRN=<your UPRN here> trmnlp serve
 ```
