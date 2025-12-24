@@ -1,0 +1,14 @@
+{% if next_refuse_date < next_recycling_date %}
+  {% assign next_logo = waste_logo %}
+  {% assign next_collection = next_refuse %}
+{% else %}
+  {% assign next_logo = recycling_logo %}
+  {% assign next_collection = next_recycling %}
+{% endif %}
+                         
+<div class="layout layout--col">
+  <div class="image image-stroke">{{ next_logo }}</div>
+
+  <div class="title">{{ next_collection.Next | date: "%A" }}</div>
+  <div class="value value--xsmall">{{ next_collection.Next | date: "%d/%m/%y" }}</div>
+</div>

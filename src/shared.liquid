@@ -1,0 +1,15 @@
+{% comment %}
+All images are from https://pictogrammers.com/library/mdi/
+https://github.com/Templarian/MaterialDesign/blob/master/LICENSE
+{% endcomment %}
+
+{% assign image_size = 128 %}
+{% capture waste_logo %}<svg viewBox="0 0 24 24" style="height: {{ image_size }}px; width: {{ image_size }}px;"><path fill="currentColor" d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"></path></svg>{% endcapture %}
+{% capture recycling_logo %}<svg viewBox="0 0 24 24" style="height: {{ image_size }}px; width: {{ image_size }}px;"><path fill="currentColor" d="M21.82,15.42L19.32,19.75C18.83,20.61 17.92,21.06 17,21H15V23L12.5,18.5L15,14V16H17.82L15.6,12.15L19.93,9.65L21.73,12.77C22.25,13.54 22.32,14.57 21.82,15.42M9.21,3.06H14.21C15.19,3.06 16.04,3.63 16.45,4.45L17.45,6.19L19.18,5.19L16.54,9.6L11.39,9.69L13.12,8.69L11.71,6.24L9.5,10.09L5.16,7.59L6.96,4.47C7.37,3.64 8.22,3.06 9.21,3.06M5.05,19.76L2.55,15.43C2.06,14.58 2.13,13.56 2.64,12.79L3.64,11.06L1.91,10.06L7.05,10.14L9.7,14.56L7.97,13.56L6.56,16H11V21H7.4C6.47,21.07 5.55,20.61 5.05,19.76Z"></path></svg>{% endcapture %}
+{% capture food_logo %}<svg viewBox="0 0 24 24" style="height: {{ image_size }}px; width: {{ image_size }}px;"><path fill="currentColor" d="M1 22C1 22.54 1.45 23 2 23H15C15.56 23 16 22.54 16 22V21H1V22M8.5 9C4.75 9 1 11 1 15H16C16 11 12.25 9 8.5 9M3.62 13C4.73 11.45 7.09 11 8.5 11S12.27 11.45 13.38 13H3.62M1 17H16V19H1V17M18 5V1H16V5H11L11.23 7H20.79L19.39 21H18V23H19.72C20.56 23 21.25 22.35 21.35 21.53L23 5H18Z"></path></svg>{% endcapture %}
+{% capture garden_waste_logo %}<svg viewBox="0 0 24 24" style="height: {{ image_size }}px; width: {{ image_size }}px;"><path fill="currentColor" d="M3,13A9,9 0 0,0 12,22A9,9 0 0,0 3,13M5.44,15.44C7.35,16.15 8.85,17.65 9.56,19.56C7.65,18.85 6.15,17.35 5.44,15.44M12,22A9,9 0 0,0 21,13A9,9 0 0,0 12,22M14.42,19.57C15.11,17.64 16.64,16.11 18.57,15.42C17.86,17.34 16.34,18.86 14.42,19.57M12,14A6,6 0 0,0 18,8V3C17.26,3 16.53,3.12 15.84,3.39C15.29,3.62 14.8,3.96 14.39,4.39L12,2L9.61,4.39C9.2,3.96 8.71,3.62 8.16,3.39C7.47,3.12 6.74,3 6,3V8A6,6 0 0,0 12,14M8,5.61L9.57,7.26L12,4.83L14.43,7.26L16,5.61V8A4,4 0 0,1 12,12A4,4 0 0,1 8,8V5.61Z"></path></svg>{% endcapture %}
+
+{% assign next_recycling = d | where: "ServiceName", "Domestic Recycling Collection" | map: "ServiceHeaders" | first | first %}
+{% assign next_refuse = d | where: "ServiceName", "Domestic Refuse Collection" | map: "ServiceHeaders" | first | first %}
+{% assign next_food = d | where: "ServiceName", "Domestic Food Collection" | map: "ServiceHeaders" | first | first %}
+{% assign next_garden_waste = d | where: "ServiceName", "Domestic Garden Waste Collection" | map: "ServiceHeaders" | first | first %}

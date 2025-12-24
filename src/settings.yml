@@ -1,0 +1,18 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: post
+polling_url: https://gis.stalbans.gov.uk/NoticeBoard9/VeoliaProxy.NoticeBoard.asmx/GetServicesByUprnAndNoticeBoard
+polling_headers: accept=application/json&content-type=application/json
+polling_body: '{"noticeBoard": "default", "uprn": {{ uprn }}}'
+id: 203404
+custom_fields:
+- keyname: uprn
+  field_type: number
+  name: UPRN
+  description: The UPRN of your property
+  help_text: You can find your UPRN at <a href="https://www.findmyaddress.co.uk">FindMyAddress</a>
+name: St Albans Rubbish Collections
+refresh_interval: 1440
