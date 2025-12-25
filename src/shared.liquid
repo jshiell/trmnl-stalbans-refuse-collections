@@ -13,3 +13,10 @@ https://github.com/Templarian/MaterialDesign/blob/master/LICENSE
 {% assign next_refuse = d | where: "ServiceName", "Domestic Refuse Collection" | map: "ServiceHeaders" | first | first %}
 {% assign next_food = d | where: "ServiceName", "Domestic Food Collection" | map: "ServiceHeaders" | first | first %}
 {% assign next_garden_waste = d | where: "ServiceName", "Domestic Garden Waste Collection" | map: "ServiceHeaders" | first | first %}
+
+{% assign next_recycling_date = next_recycling.Next | date: "%Y%m%d" %}
+{% assign next_refuse_date = next_refuse.Next | date: "%Y%m%d" %}
+{% assign next_food_date = next_food.Next | date: "%Y%m%d" %}
+{% assign next_garden_waste_date = next_garden_waste.Next | date: "%Y%m%d" %}
+
+{% assign now_date = "now" | date: "%Y%m%d" %}
