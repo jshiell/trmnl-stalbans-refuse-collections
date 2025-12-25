@@ -6,13 +6,10 @@ A port of [my Home Assistant refuse collections plugin](github.com/jshiell/homea
 
 ## Running Locally
 
-You'll need Ruby to run [trmnl-preview](https://github.com/usetrmnl/trmnlp).
+You'll need Ruby to run [trmnl-preview](https://github.com/usetrmnl/trmnlp) or Docker.
 
 ```bash
-gem install trmnl-preview
-```
-
-UPRN=<your UPRN here> trmnlp serve
+UPRN=<your UPRN here> bin/trmnlp serve
 ```
 
 You can get [your property's UPRN here](https://www.findmyaddress.co.uk) if you don't have it.
