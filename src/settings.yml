@@ -1,29 +1,29 @@
 ---
 strategy: polling
-no_screen_padding: "no"
-dark_mode: "no"
-static_data: ""
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
 polling_verb: post
 polling_url: https://gis.stalbans.gov.uk/NoticeBoard9/VeoliaProxy.NoticeBoard.asmx/GetServicesByUprnAndNoticeBoard
 polling_headers: accept=application/json&content-type=application/json
 polling_body: '{"noticeBoard": "default", "uprn": {{ uprn }}}'
 id: 203404
 custom_fields:
-  - keyname: author_bio
-    name: About This Plugin
-    category: life,environment
-    field_type: author_bio
-    description: |
-      St Albans Refuse Collections displays the upcoming collection date from your refuse, recycling, food, and garden waste.
-      <br><br>
-      Note that this will only be useful for residents of St Albans in the UK.
-      <br><br>
-      You will require your unique property reference number (UPRN), which you can find at: https://www.findmyaddress.co.uk
-    github_url: https://github.com/jshiell/trmnl-stalbans-refuse-collections
-  - keyname: uprn
-    field_type: number
-    name: UPRN
-    description: The UPRN of your property
-    help_text: You can find your UPRN at <a href="https://www.findmyaddress.co.uk">FindMyAddress</a>
+- keyname: author_bio
+  name: About This Plugin
+  category: life,environment
+  field_type: author_bio
+  description: |
+    St Albans Refuse Collections displays the upcoming collection date from your refuse, recycling, food, and garden waste.
+    <br><br>
+    Note that this will only be useful for residents of St Albans in the UK.
+    <br><br>
+    You will require your unique property reference number (UPRN), which you can find at: https://www.findmyaddress.co.uk
+  github_url: https://github.com/jshiell/trmnl-stalbans-refuse-collections
+- keyname: uprn
+  field_type: number
+  name: UPRN
+  description: The UPRN of your property
+  help_text: You can find your UPRN at <a href="https://www.findmyaddress.co.uk">FindMyAddress</a>
 name: St Albans Refuse Collections
 refresh_interval: 1440
