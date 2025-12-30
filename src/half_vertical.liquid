@@ -1,52 +1,24 @@
 <div class="layout layout--row layout--stretch-x">
   <div class="layout layout--col">
     <div class="image image-stroke">{{ waste_logo }}</div>
-  
-    <div class="title">
-        {% if next_refuse_date == now_date %}
-            TODAY
-        {% else %}
-            {{ next_refuse.Next | date: "%A" }}
-        {% endif %}
-    </div>
+    <div class="title">{{ next_refuse_day }}</div>
     <div class="value value--xsmall">{{ next_refuse.Next | date: "%d/%m/%y" }}</div>
   </div>
   <div class="layout layout--col">
     <div class="image image-stroke">{{ recycling_logo }}</div>
-  
-    <div class="title">
-        {% if next_recycling_date == now_date %}
-            TODAY
-        {% else %}
-            {{ next_recycling.Next | date: "%A" }}
-        {% endif %}
-    </div>
+    <div class="title">{{ next_recycling_day }}</div>
     <div class="value value--xsmall">{{ next_recycling.Next | date: "%d/%m/%y" }}</div>
   </div>
 </div>
 <div class="layout layout--row layout--stretch-x">
   <div class="layout layout--col">
     <div class="image image-stroke">{{ food_logo }}</div>
-  
-    <div class="title">
-        {% if next_food_date == now_date %}
-            TODAY
-        {% else %}
-            {{ next_food.Next | date: "%A" }}
-        {% endif %}
-    </div>
+    <div class="title">{{ next_food_day }}</div>
     <div class="value value--xsmall">{{ next_food.Next | date: "%d/%m/%y" }}</div>
   </div>
   <div class="layout layout--col">
     <div class="image image-stroke">{{ garden_waste_logo }}</div>
-  
-    <div class="title">
-        {% if next_garden_waste_date == now_date %}
-            TODAY
-        {% else %}
-            {{ next_garden_waste.Next | date: "%A" }}
-        {% endif %}
-    </div>
+    <div class="title">{{ next_garden_waste_day }}</div>
     <div class="value value--xsmall">{{ next_garden_waste.Next | date: "%d/%m/%y" }}</div>
   </div>
 </div>

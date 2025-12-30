@@ -9,14 +9,51 @@ https://github.com/Templarian/MaterialDesign/blob/master/LICENSE
 {% capture food_logo %}<svg viewBox="0 0 24 24" style="height: {{ image_size }}px; width: {{ image_size }}px;"><path fill="currentColor" d="M1 22C1 22.54 1.45 23 2 23H15C15.56 23 16 22.54 16 22V21H1V22M8.5 9C4.75 9 1 11 1 15H16C16 11 12.25 9 8.5 9M3.62 13C4.73 11.45 7.09 11 8.5 11S12.27 11.45 13.38 13H3.62M1 17H16V19H1V17M18 5V1H16V5H11L11.23 7H20.79L19.39 21H18V23H19.72C20.56 23 21.25 22.35 21.35 21.53L23 5H18Z"></path></svg>{% endcapture %}
 {% capture garden_waste_logo %}<svg viewBox="0 0 24 24" style="height: {{ image_size }}px; width: {{ image_size }}px;"><path fill="currentColor" d="M3,13A9,9 0 0,0 12,22A9,9 0 0,0 3,13M5.44,15.44C7.35,16.15 8.85,17.65 9.56,19.56C7.65,18.85 6.15,17.35 5.44,15.44M12,22A9,9 0 0,0 21,13A9,9 0 0,0 12,22M14.42,19.57C15.11,17.64 16.64,16.11 18.57,15.42C17.86,17.34 16.34,18.86 14.42,19.57M12,14A6,6 0 0,0 18,8V3C17.26,3 16.53,3.12 15.84,3.39C15.29,3.62 14.8,3.96 14.39,4.39L12,2L9.61,4.39C9.2,3.96 8.71,3.62 8.16,3.39C7.47,3.12 6.74,3 6,3V8A6,6 0 0,0 12,14M8,5.61L9.57,7.26L12,4.83L14.43,7.26L16,5.61V8A4,4 0 0,1 12,12A4,4 0 0,1 8,8V5.61Z"></path></svg>{% endcapture %}
 
+{% assign now_date = "now" | date: "%Y%m%d" %}
+{% assign start_of_tomorrow_ts = "now" | date: "%d %B %Y 23:59:59" | date: "%s" | plus: 1 %}
+{% assign end_of_tomorrow_ts = start_of_tomorrow_ts | plus: 86399 %}
+
 {% assign next_recycling = d | where: "ServiceName", "Domestic Recycling Collection" | map: "ServiceHeaders" | first | first %}
 {% assign next_refuse = d | where: "ServiceName", "Domestic Refuse Collection" | map: "ServiceHeaders" | first | first %}
 {% assign next_food = d | where: "ServiceName", "Domestic Food Collection" | map: "ServiceHeaders" | first | first %}
 {% assign next_garden_waste = d | where: "ServiceName", "Domestic Garden Waste Collection" | map: "ServiceHeaders" | first | first %}
 
+{% assign next_recycling_date_ts = next_recycling.Next | date: "%s" | plus: 0 %}
 {% assign next_recycling_date = next_recycling.Next | date: "%Y%m%d" %}
-{% assign next_refuse_date = next_refuse.Next | date: "%Y%m%d" %}
-{% assign next_food_date = next_food.Next | date: "%Y%m%d" %}
-{% assign next_garden_waste_date = next_garden_waste.Next | date: "%Y%m%d" %}
+{% if next_recycling_date == now_date %}
+    {% assign next_recycling_day = "TODAY" %}
+{% elsif next_recycling_date_ts >= start_of_tomorrow_ts and next_recycling_date_ts <= end_of_tomorrow_ts %}
+    {% assign next_recycling_day = "Tomorrow" %}
+{% else %}
+    {% assign next_recycling_day = next_recycling.Next | date: "%A" %}
+{% endif %}
 
-{% assign now_date = "now" | date: "%Y%m%d" %}
+{% assign next_refuse_date_ts = next_refuse.Next | date: "%s" | plus: 0 %}
+{% assign next_refuse_date = next_refuse.Next | date: "%Y%m%d" %}
+{% if next_refuse_date == now_date %}
+    {% assign next_refuse_day = "TODAY" %}
+{% elsif next_refuse_date_ts >= start_of_tomorrow_ts and next_refuse_date_ts <= end_of_tomorrow_ts %}
+    {% assign next_refuse_day = "Tomorrow" %}
+{% else %}
+    {% assign next_refuse_day = next_refuse.Next | date: "%A" %}
+{% endif %}
+
+{% assign next_food_date_ts = next_food.Next | date: "%s" | plus: 0 %}
+{% assign next_food_date = next_food.Next | date: "%Y%m%d" %}
+{% if next_food_date == now_date %}
+    {% assign next_food_day = "TODAY" %}
+{% elsif next_food_date_ts >= start_of_tomorrow_ts and next_food_date_ts <= end_of_tomorrow_ts %}
+    {% assign next_food_day = "Tomorrow" %}
+{% else %}
+    {% assign next_food_day = next_food.Next | date: "%A" %}
+{% endif %}
+
+{% assign next_garden_waste_date_ts = next_garden_waste.Next | date: "%s" | plus: 0 %}
+{% assign next_garden_waste_date = next_garden_waste.Next | date: "%Y%m%d" %}
+{% if next_garden_waste_date == now_date %}
+    {% assign next_garden_waste_day = "TODAY" %}
+{% elsif next_garden_waste_date_ts >= start_of_tomorrow_ts and next_garden_waste_date_ts <= end_of_tomorrow_ts %}
+    {% assign next_garden_waste_day = "Tomorrow" %}
+{% else %}
+    {% assign next_garden_waste_day = next_garden_waste.Next | date: "%A" %}
+{% endif %}
