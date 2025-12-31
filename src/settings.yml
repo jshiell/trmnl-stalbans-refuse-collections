@@ -18,7 +18,7 @@ custom_fields:
       <br><br>
       Note that this will only be useful for residents of St Albans in the UK.
       <br><br>
-      You will require your unique property reference number (UPRN), which you can find using <a href="https://www.findmyaddress.co.uk">FindMyAddress</a>
+      You will require your unique property reference number (UPRN), which you can find using <a href="https://www.findmyaddress.co.uk">FindMyAddress</a>.
     github_url: https://github.com/jshiell/trmnl-stalbans-refuse-collections
   - keyname: uprn
     field_type: number
