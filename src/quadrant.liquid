@@ -8,11 +8,11 @@
   {% assign next_collection_day = next_recycling_day %}
 {% endif %}
 
-<div class="layout layout--row">
+<div class="layout layout--row text--center">
     <div class="image image-stroke">{{ next_logo }}</div>
-    <div class="layout layout--col">
-    <div class="title">{{ next_collection_day }}</div>
-    <div class="value value--xsmall">{{ next_collection.Next | date: "%d/%m/%y" }}</div>
+    <div>
+        <div class="title mb--2">{{ next_collection_day }}</div>
+        <div class="value value--xsmall">{{ next_collection.Next | date: "%d/%m/%y" }}</div>
     </div>
 </div>
 <div class="title_bar">
