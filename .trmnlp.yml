@@ -10,6 +10,8 @@ watch:
 custom_fields:
   uprn: "{{ env.UPRN }}"
 
+time_zone: Europe/London
+
 # override variables
 variables:
   trmnl: {}
